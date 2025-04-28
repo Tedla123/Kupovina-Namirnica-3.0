@@ -1,0 +1,47 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f7f6;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  border-bottom: 2px solid #ccc;
+  padding: 10px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  cursor: pointer;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  color: #555;
+  background: none;
+}
+
+.tab.active {
+  color: #0078d4;
+  border-bottom: 3px solid #0078d4;
+  background: #ffffff;
+}
+
+.lang-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.lang-buttons button {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lang-buttons button:hover {
+  background: #

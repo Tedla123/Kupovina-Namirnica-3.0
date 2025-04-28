@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ShopWise</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div id="popupMessage" class="popup-message" style="display: none;"></div>
+
+<div class="tabs">
+  <div class="tab active" data-target="fruit" id="tabFruit">Odabir namirnica</div>
+  <div class="tab" data-target="shopping-list" id="tabShoppingList">Popis za kupovinu</div>
+  <div class="tab" data-target="shopping" id="tabShopping">Kupovina</div>
+  <div class="tab" data-target="settings" id="tabSettings">Postavke</div>
+  <div class="lang-buttons">
+    <button id="hrButton">🇭🇷</button>
+    <button id="enButton">🇬🇧</button>
+  </div>
+</div>
+
+<div id="fruit" class="content active">
+  <div id="categoriesContainer"></div>
+</div>
+
+<div id="shopping-list" class="content">
+  <button id="btnSaveList" onclick="saveShoppingList()" title="Spremi trenutni popis"><i class="fas fa-file-alt"></i></button>
+  <button id="btnExportList" onclick="exportShoppingList()" title="Izvezi popis"><i class="fas fa-arrow-down"></i></button>
+  <label for="importFile" class="custom-file-label" id="btnImportList" title="Uvezi popis"><i class="fas fa-arrow-up"></i></label>
+  <input type="file" id="importFile" accept="application/json" onchange="importShoppingList(event)">
+  <button id="btnClearList" onclick="clearShoppingList()" title="Obriši popis"><i class="fas fa-trash"></i></button>
+
+  <div id="selectedCategoriesView"></div>
+  <div id="savedShoppingLists" style="margin-top: 20px;"></div>
+</div>
+
+<div id="shopping" class="content">
+  <button id="btnStartShopping" onclick="startShopping()">Obavi kupnju</button>
+  <div id="shoppingPopup" class="popup" style="display: none;"></div>
+  <div id="shoppingItems"></div>
+</div>
+
+<div id="settings" class="content">
+  <h2 id="titleSettings">Uredi kategorije i namirnice</h2>
+  <select id="countrySelect">
+    <option value="Hrvatska" selected>Hrvatska</option>
+  </select>
+
+  <div id="settingsContainer"></div>
+
+  <label class="settings-toggle-label">
+    Swipe između tabova
+    <label class="switch">
+      <input type="checkbox" id="swipeToggle">
+      <span class="slider"></span>
+    </label>
+  </label>
+
+  <label class="settings-toggle-label">
+    Prikaži vertikalni scroll bar
+    <input type="checkbox" id="verticalScrollToggle">
+  </label>
+
+  <label class="settings-toggle-label">
+    Prikaži horizontalni scroll bar
+    <input type="checkbox" id="horizontalScrollToggle">
+  </label>
+
+  <button id="btnSaveSettings" onclick="saveSettings()">Spremi postavke</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
