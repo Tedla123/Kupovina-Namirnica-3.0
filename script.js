@@ -61,7 +61,7 @@ function switchLanguage(lang) {
   document.getElementById("btnExportList").title = lang === "HR" ? "Izvezi popis" : translations["Izvezi popis"];
   document.getElementById("btnImportList").title = lang === "HR" ? "Uvezi popis" : translations["Uvezi popis"];
   document.getElementById("btnClearList").title = lang === "HR" ? "Obriši popis" : translations["Obriši popis"];
-  document.getElementById("btnStartShopping").textContent = lang === "HR" ? "Obavi kupnju" : translations["Obavi kupnju"];
+  document.getElementById("btnStartShopping").textContent = lang === "HR" ? "Obavi kupnju" : translations["Obavi kupovinu"];
   document.getElementById("titleSettings").textContent = lang === "HR" ? "Uredi kategorije i namirnice" : translations["Uredi kategorije i namirnice"];
   document.getElementById("btnSaveSettings").textContent = lang === "HR" ? "Spremi postavke" : translations["Spremi postavke"];
   renderCategories();
@@ -71,12 +71,23 @@ function renderCategories() {
   const container = document.getElementById("categoriesContainer");
   container.innerHTML = "";
 
+  let first = true;
+
   for (let [category, items] of Object.entries(categories)) {
     const catDiv = document.createElement("div");
-    catDiv.className = "category active";
+    catDiv.className = "category";
+
+    if (first) {
+      catDiv.classList.add("active");
+      first = false;
+    }
 
     const catHeader = document.createElement("h3");
-    catHeader.textContent = currentLanguage === "HR" ? category : translations[category] || category;
+    catHeader.textContent = currentLanguage === "HR" ? category : (translations[category] || category);
+    catHeader.onclick = () => {
+      document.querySelectorAll(".category").forEach(c => c.classList.remove("active"));
+      catDiv.classList.add("active");
+    };
     catDiv.appendChild(catHeader);
 
     const itemDiv = document.createElement("div");
@@ -145,7 +156,6 @@ function renderSelectedItems() {
     container.appendChild(catDiv);
   }
 }
-
 
 function saveShoppingList() {
   if (Object.keys(selectedItems).length === 0) {
@@ -239,15 +249,42 @@ function renderShoppingItems() {
   const container = document.getElementById("shoppingItems");
   container.innerHTML = "";
 
+  const categoriesSelected = {};
+
   for (let item in selectedItems) {
-    const btn = document.createElement("button");
-    btn.textContent = `${item} - ${selectedItems[item]}`;
-    btn.className = "shopping-item";
-    btn.onclick = () => {
-      delete selectedItems[item];
-      renderShoppingItems();
-    };
-    container.appendChild(btn);
+    for (let category in categories) {
+      if (categories[category].includes(item)) {
+        if (!categoriesSelected[category]) categoriesSelected[category] = [];
+        categoriesSelected[category].push({ name: item, quantity: selectedItems[item] });
+        break;
+      }
+    }
+  }
+
+  for (let category in categoriesSelected) {
+    const catDiv = document.createElement("div");
+    catDiv.className = "category active";
+
+    const catHeader = document.createElement("h3");
+    catHeader.textContent = currentLanguage === "HR" ? category : (translations[category] || category);
+    catDiv.appendChild(catHeader);
+
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "items";
+
+    categoriesSelected[category].forEach(itemObj => {
+      const btn = document.createElement("button");
+      btn.textContent = `${itemObj.name} - ${itemObj.quantity}`;
+      btn.className = "shopping-item";
+      btn.onclick = () => {
+        delete selectedItems[itemObj.name];
+        renderShoppingItems();
+      };
+      itemDiv.appendChild(btn);
+    });
+
+    catDiv.appendChild(itemDiv);
+    container.appendChild(catDiv);
   }
 }
 
