@@ -105,7 +105,7 @@ function renderCategories() {
         e.preventDefault();
         pressTimer = window.setTimeout(() => {
           showQuantityPopup(item);
-        }, 500);
+        }, 250);
       });
       btn.addEventListener('mouseup', (e) => {
         clearTimeout(pressTimer);
