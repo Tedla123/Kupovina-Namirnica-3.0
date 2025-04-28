@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ShopWise</title>
+<title>SmartCart</title>
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -51,7 +51,7 @@
     </button>
   </div>
 
-  <select id="countrySelect" style="margin-top:20px;">
+  <select id="countrySelect" class="styled-select">
     <option value="Hrvatska" selected>Hrvatska</option>
   </select>
 
@@ -67,12 +67,18 @@
 
   <label class="settings-toggle-label">
     Prikaži vertikalni scroll bar
-    <input type="checkbox" id="verticalScrollToggle">
+    <label class="switch">
+      <input type="checkbox" id="verticalScrollToggle">
+      <span class="slider"></span>
+    </label>
   </label>
 
   <label class="settings-toggle-label">
     Prikaži horizontalni scroll bar
-    <input type="checkbox" id="horizontalScrollToggle">
+    <label class="switch">
+      <input type="checkbox" id="horizontalScrollToggle">
+      <span class="slider"></span>
+    </label>
   </label>
 
   <button id="btnSaveSettings" onclick="saveSettings()">Spremi postavke</button>

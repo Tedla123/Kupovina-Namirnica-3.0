@@ -16,6 +16,9 @@ let translations = {
   "Obriši popis": "Clear List",
   "Obavi kupnju": "Start Shopping",
   "Uredi kategorije i namirnice": "Edit Categories and Items",
+  "Swipe između tabova": "Swipe between tabs",
+  "Prikaži vertikalni scroll bar": "Show vertical scroll bar",
+  "Prikaži horizontalni scroll bar": "Show horizontal scroll bar",
   "Spremi postavke": "Save Settings"
 };
 
@@ -63,9 +66,15 @@ function switchLanguage(lang) {
   document.getElementById("btnExportList").title = lang === "HR" ? "Izvezi popis" : translations["Izvezi popis"];
   document.getElementById("btnImportList").title = lang === "HR" ? "Uvezi popis" : translations["Uvezi popis"];
   document.getElementById("btnClearList").title = lang === "HR" ? "Obriši popis" : translations["Obriši popis"];
-  document.getElementById("btnStartShopping").textContent = lang === "HR" ? "Obavi kupnju" : translations["Obavi kupnju"];
+  document.getElementById("btnStartShopping").textContent = lang === "HR" ? "Obavi kupnju" : translations["Obavi kupovinu"];
   document.getElementById("titleSettings").textContent = lang === "HR" ? "Uredi kategorije i namirnice" : translations["Uredi kategorije i namirnice"];
   document.getElementById("btnSaveSettings").textContent = lang === "HR" ? "Spremi postavke" : translations["Spremi postavke"];
+  
+  // Prevodimo i postavke switcheva
+  document.querySelector('label[for="swipeToggle"]').childNodes[0].nodeValue = lang === "HR" ? "Swipe između tabova" : translations["Swipe između tabova"];
+  document.querySelector('label[for="verticalScrollToggle"]').childNodes[0].nodeValue = lang === "HR" ? "Prikaži vertikalni scroll bar" : translations["Prikaži vertikalni scroll bar"];
+  document.querySelector('label[for="horizontalScrollToggle"]').childNodes[0].nodeValue = lang === "HR" ? "Prikaži horizontalni scroll bar" : translations["Prikaži horizontalni scroll bar"];
+
   renderCategories();
 }
 
@@ -98,14 +107,14 @@ function renderCategories() {
     items.forEach(item => {
       const btn = document.createElement("button");
       btn.textContent = currentLanguage === "HR" ? item : translations[item] || item;
+      btn.classList.add('item-button');
 
-      // Detekcija dugog pritiska
       let pressTimer;
       btn.addEventListener('mousedown', (e) => {
         e.preventDefault();
         pressTimer = window.setTimeout(() => {
-          showQuantityPopup(item);
-        }, 250);
+          showQuantityPopup(item, btn);
+        }, 500);
       });
       btn.addEventListener('mouseup', (e) => {
         clearTimeout(pressTimer);
@@ -114,11 +123,13 @@ function renderCategories() {
         clearTimeout(pressTimer);
       });
 
-      // Kratki klik
       btn.addEventListener('click', (e) => {
-        selectedItems[item] = (selectedItems[item] || 0) + 1;
-        btn.classList.add("selected-item");
-        renderSelectedItems();
+        if (pressTimer) {
+          selectedItems[item] = (selectedItems[item] || 0) + 1;
+          btn.classList.add("selected-item");
+          renderSelectedItems();
+          showFloatingPlus(btn);
+        }
       });
 
       itemDiv.appendChild(btn);
@@ -129,12 +140,23 @@ function renderCategories() {
   }
 }
 
-function showQuantityPopup(item) {
+function showQuantityPopup(item, button) {
   const quantity = prompt(currentLanguage === "HR" ? "Unesite količinu za " + item + ":" : "Enter quantity for " + item + ":");
-  if (quantity && !isNaN(quantity) && quantity > 0) {
-    selectedItems[item] = parseInt(quantity);
+  if (quantity && !isNaN(quantity) && parseFloat(quantity) > 0) {
+    selectedItems[item] = parseFloat(quantity);
     renderSelectedItems();
+    button.classList.add("selected-item");
   }
+}
+
+function showFloatingPlus(button) {
+  const plus = document.createElement('div');
+  plus.textContent = "+1";
+  plus.className = "floating-plus";
+  button.appendChild(plus);
+  setTimeout(() => {
+    plus.remove();
+  }, 2000);
 }
 
 function renderSelectedItems() {
@@ -170,9 +192,8 @@ function renderSelectedItems() {
       btn.textContent = `${itemObj.name} - ${itemObj.quantity}`;
       btn.className = "shopping-item";
       btn.onclick = () => {
-        if (selectedItems[itemObj.name] > 1) {
-          selectedItems[itemObj.name]--;
-        } else {
+        selectedItems[itemObj.name] = (selectedItems[itemObj.name] || 0) - 1;
+        if (selectedItems[itemObj.name] <= 0) {
           delete selectedItems[itemObj.name];
         }
         renderSelectedItems();
