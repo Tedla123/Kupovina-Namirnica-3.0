@@ -44,4 +44,137 @@ body {
 }
 
 .lang-buttons button:hover {
-  background: #
+  background: #e6e6e6;
+}
+
+.content {
+  display: none;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.content.active {
+  display: block;
+}
+
+.category {
+  margin-bottom: 20px;
+}
+
+.category h3 {
+  cursor: pointer;
+  background: #eef3f7;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.items {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.category.active .items {
+  display: grid;
+  background-color: #dce7f1;
+}
+
+button, .custom-file-label {
+  padding: 10px 12px;
+  background: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font: inherit;
+  display: inline-block;
+  margin: 5px 5px 5px 0;
+}
+
+button:hover:not(.shopping-item), .custom-file-label:hover {
+  background-color: #005ea8;
+}
+
+.shopping-item {
+  background-color: #d92d20;
+}
+
+.shopping-item:hover {
+  background-color: #b81e10;
+}
+
+.selected-item {
+  background-color: #a8e6a3 !important;
+  color: #1a471a !important;
+  border: 2px solid #4caf50;
+  font-weight: 600;
+}
+
+.custom-file-label {
+  background: #ffffff;
+  color: #0078d4;
+  border: 1px dashed #0078d4;
+}
+
+.custom-file-label:hover {
+  background: #e6f0fb;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.popup {
+  background: white;
+  border: 2px solid #0078d4;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.popup h4 {
+  margin-top: 0;
+}
+
+.popup button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #009cdd;
+}
+
+.popup-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0078d4;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 9999;
+}
+
+.popup-message.show {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .items {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  .tab {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
