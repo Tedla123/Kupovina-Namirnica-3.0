@@ -16,14 +16,6 @@
   <div class="tab" data-target="shopping-list" id="tabShoppingList">Popis za kupovinu</div>
   <div class="tab" data-target="shopping" id="tabShopping">Kupovina</div>
   <div class="tab" data-target="settings" id="tabSettings">Postavke</div>
-  <div class="lang-buttons">
-    <button id="hrButton" title="Hrvatski">
-      <img src="https://flagcdn.com/w40/hr.png" alt="Hrvatska" width="24" height="16" style="border-radius:4px;">
-    </button>
-    <button id="enButton" title="English">
-      <img src="https://flagcdn.com/w40/gb.png" alt="UK" width="24" height="16" style="border-radius:4px;">
-    </button>
-  </div>
 </div>
 
 <div id="fruit" class="content active">
@@ -49,7 +41,17 @@
 
 <div id="settings" class="content">
   <h2 id="titleSettings">Uredi kategorije i namirnice</h2>
-  <select id="countrySelect">
+
+  <div class="lang-buttons-settings">
+    <button id="hrButton" title="Hrvatski">
+      <img src="https://flagcdn.com/w40/hr.png" alt="Hrvatska" width="24" height="16" style="border-radius:4px;">
+    </button>
+    <button id="enButton" title="English">
+      <img src="https://flagcdn.com/w40/gb.png" alt="UK" width="24" height="16" style="border-radius:4px;">
+    </button>
+  </div>
+
+  <select id="countrySelect" style="margin-top:20px;">
     <option value="Hrvatska" selected>Hrvatska</option>
   </select>
 

@@ -29,15 +29,13 @@ body {
   border-bottom: 3px solid #0078d4;
 }
 
-.lang-buttons {
+.lang-buttons-settings {
   display: flex;
-  gap: 5px;
-  position: absolute;
-  right: 20px;
-  top: 10px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.lang-buttons button {
+.lang-buttons-settings button {
   background: white;
   border: 1px solid #ccc;
   padding: 4px;
@@ -45,7 +43,7 @@ body {
   border-radius: 6px;
 }
 
-.lang-buttons img {
+.lang-buttons-settings img {
   vertical-align: middle;
   border-radius: 4px;
 }
@@ -227,7 +225,7 @@ input:checked + .slider:before {
 
 @media (max-width: 600px) {
   .items {
-    grid-template-columns: repeat(auto-fill, mianmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
   .tab {
     padding: 10px;
