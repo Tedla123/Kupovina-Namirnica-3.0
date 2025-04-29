@@ -79,6 +79,8 @@ function switchLanguage(lang) {
   renderCategories();
 }
 
+
+
 function renderCategories() {
   const container = document.getElementById("categoriesContainer");
   container.innerHTML = "";
@@ -111,21 +113,35 @@ function renderCategories() {
       btn.classList.add('item-button');
 
       let pressTimer;
-      btn.addEventListener('mousedown', (e) => {
-        e.preventDefault();
+
+      function startPressTimer() {
         pressTimer = window.setTimeout(() => {
           showQuantityPopup(item, btn);
         }, 500);
-      });
-      btn.addEventListener('mouseup', (e) => {
-        clearTimeout(pressTimer);
-      });
-      btn.addEventListener('mouseleave', (e) => {
-        clearTimeout(pressTimer);
-      });
+      }
 
+      function cancelPressTimer() {
+        clearTimeout(pressTimer);
+      }
+
+      // Desktop: mouse events
+      btn.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        startPressTimer();
+      });
+      btn.addEventListener('mouseup', cancelPressTimer);
+      btn.addEventListener('mouseleave', cancelPressTimer);
+
+      // Mobile: touch events
+      btn.addEventListener('touchstart', (e) => {
+        startPressTimer();
+      });
+      btn.addEventListener('touchend', cancelPressTimer);
+      btn.addEventListener('touchcancel', cancelPressTimer);
+
+      // Kratki klik
       btn.addEventListener('click', (e) => {
-        if (pressTimer) {
+        if (!pressTimer) { // Ako nije bio long press
           selectedItems[item] = (selectedItems[item] || 0) + 1;
           btn.classList.add("selected-item");
           renderSelectedItems();
@@ -140,6 +156,8 @@ function renderCategories() {
     container.appendChild(catDiv);
   }
 }
+
+
 function showQuantityPopup(item, button) {
   const quantity = prompt(currentLanguage === "HR" ? "Unesite količinu za " + item + ":" : "Enter quantity for " + item + ":");
   if (quantity && !isNaN(quantity) && parseFloat(quantity) > 0) {
