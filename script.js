@@ -36,6 +36,7 @@ window.onload = function () {
   renderCategories();
   loadSettings();
   setupSwipe();
+activateFirstCategory()
 };
 
 function setupTabs() {
@@ -161,6 +162,7 @@ function renderCategories() {
     catDiv.appendChild(itemDiv);
     container.appendChild(catDiv);
   }
+activateFirstCategory()
 }
 
 
@@ -425,5 +427,14 @@ function handleSwipeGesture() {
       const prevTab = tabs[activeIndex - 1];
       if (prevTab) prevTab.click();
     }
+  }
+}
+
+
+function activateFirstCategory() {
+  const allCategories = document.querySelectorAll(".category");
+  allCategories.forEach(c => c.classList.remove("active"));
+  if (allCategories.length > 0) {
+    allCategories[0].classList.add("active");
   }
 }
