@@ -1,4 +1,4 @@
-let touchStartX = 0;
+3let touchStartX = 0;
 let touchEndX = 0;
 
 let categories = {
@@ -311,10 +311,7 @@ function clearShoppingList() {
   if (confirm(currentLanguage === "HR" ? "Jesi li siguran?" : "Are you sure?")) {
     selectedItems = {};
     renderSelectedItems();
-
-    // Očisti boje na gumbima u tabu Odabir namirnica
-    const itemButtons = document.querySelectorAll(".item-button");
-    itemButtons.forEach(btn => btn.classList.remove("selected-item"));
+    renderCategories(); // Osvježi i gumbove u tabu Odabir namirnice
   }
 }
 
