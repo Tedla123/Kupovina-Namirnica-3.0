@@ -150,7 +150,22 @@ function showFloatingPlus(button) {
   const plus = document.createElement('div');
   plus.textContent = "+1";
   plus.className = "floating-plus";
+
+  // Postavi poziciju "+1" relativno na gumb
+  plus.style.position = "absolute";
+  plus.style.left = "50%";
+  plus.style.top = "0";
+  plus.style.transform = "translate(-50%, -100%)";
+  plus.style.fontSize = "18px";
+  plus.style.fontWeight = "bold";
+  plus.style.color = "#4caf50";
+  plus.style.animation = "moveUpFade 2s forwards";
+  plus.style.pointerEvents = "none";
+  plus.style.zIndex = "1000";
+
+  button.style.position = "relative"; // Bitno da gumb ima relativnu poziciju
   button.appendChild(plus);
+
   setTimeout(() => {
     plus.remove();
   }, 2000);
