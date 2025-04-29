@@ -1,4 +1,4 @@
-3let touchStartX = 0;
+83let touchStartX = 0;
 let touchEndX = 0;
 
 let categories = {
@@ -311,7 +311,13 @@ function clearShoppingList() {
   if (confirm(currentLanguage === "HR" ? "Jesi li siguran?" : "Are you sure?")) {
     selectedItems = {};
     renderSelectedItems();
-    renderCategories(); // Osvježi i gumbove u tabu Odabir namirnice
+    renderCategories();
+
+    // Aktiviraj prvu kategoriju
+    const firstCategory = document.querySelector(".category");
+    if (firstCategory) {
+      firstCategory.classList.add("active");
+    }
   }
 }
 
