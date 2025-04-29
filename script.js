@@ -1,3 +1,60 @@
+let categories = {
+  "Voće": ["Jabuka", "Banana", "Kruška", "Šljiva", "Mandarina", "Naranča", "Smokva", "Lubenica", "Grožđe", "Kivi"],
+  "Povrće": ["Krumpir", "Rajčica", "Krastavac", "Luk", "Mrkva", "Papar", "Češnjak", "Tikvica", "Kupus", "Blitva"],
+  "Meso i riba": ["Piletina", "Junetina", "Svinjetina", "Riba orada", "Riba brancin", "Riblji štapići", "Škampi", "Janjetina", "Kobasice", "Pršut"]
+};
+
+let translations = {
+  "Voće": "Fruit", "Povrće": "Vegetables", "Meso i riba": "Meat and Fish",
+  "Odabir namirnica": "Select Groceries",
+  "Popis za kupovinu": "Shopping List",
+  "Kupovina": "Shopping",
+  "Postavke": "Settings",
+  "Spremi trenutni popis": "Save Current List",
+  "Izvezi popis": "Export List",
+  "Uvezi popis": "Import List",
+  "Obriši popis": "Clear List",
+  "Obavi kupnju": "Start Shopping",
+  "Uredi kategorije i namirnice": "Edit Categories and Items",
+  "Swipe između tabova": "Swipe between tabs",
+  "Prikaži vertikalni scroll bar": "Show vertical scroll bar",
+  "Prikaži horizontalni scroll bar": "Show horizontal scroll bar",
+  "Spremi postavke": "Save Settings"
+};
+
+let selectedItems = {};
+let savedLists = [];
+let currentLanguage = "HR";
+let swipeEnabled = true;
+
+window.onload = function () {
+  setupTabs();
+  setupLanguageButtons();
+  renderCategories();
+  loadSettings();
+  setupSwipe();
+};
+
+function setupTabs() {
+  document.querySelectorAll(".tab").forEach(tab => {
+    tab.addEventListener("click", function () {
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".content").forEach(c => c.classList.remove("active"));
+      this.classList.add("active");
+      document.getElementById(this.getAttribute("data-target")).classList.add("active");
+
+      if (this.getAttribute("data-target") === "shopping-list") {
+        renderSelectedItems();
+        renderSavedLists();
+      }
+    });
+  });
+}
+
+function setupLanguageButtons() {
+  document.getElementById('hrButton').addEventListener('click', () => switchLanguage('HR'));
+  document.getElementById('enButton').addEventListener('click', () => switchLanguage('EN'));
+}
 function switchLanguage(lang) {
   currentLanguage = lang;
   document.getElementById("tabFruit").textContent = lang === "HR" ? "Odabir namirnica" : translations["Odabir namirnica"];
@@ -183,7 +240,6 @@ function renderSavedLists() {
     savedContainer.appendChild(wrapper);
   });
 }
-
 function exportShoppingList() {
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(selectedItems));
   const dlAnchor = document.createElement("a");
