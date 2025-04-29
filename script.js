@@ -1,3 +1,6 @@
+let touchStartX = 0;
+let touchEndX = 0;
+
 let categories = {
   "Voće": ["Jabuka", "Banana", "Kruška", "Šljiva", "Mandarina", "Naranča", "Smokva", "Lubenica", "Grožđe", "Kivi"],
   "Povrće": ["Krumpir", "Rajčica", "Krastavac", "Luk", "Mrkva", "Papar", "Češnjak", "Tikvica", "Kupus", "Blitva"],
@@ -361,33 +364,35 @@ function saveSettings() {
   alert(currentLanguage === "HR" ? "Postavke spremljene!" : "Settings saved!");
 }
 
-function setupSwipe() {
-  let touchStartX = 0;
-  let touchEndX = 0;
 
+function setupSwipe() {
   document.addEventListener('touchstart', function(e) {
     touchStartX = e.changedTouches[0].screenX;
-  });
+  }, { passive: true });
 
   document.addEventListener('touchend', function(e) {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipeGesture();
-  });
+  }, { passive: true });
 }
 
 function handleSwipeGesture() {
   const swipeEnabled = document.getElementById("swipeToggle").checked;
   if (!swipeEnabled) return;
 
-  const tabs = Array.from(document.querySelectorAll(".tab"));
-  const activeTab = document.querySelector(".tab.active");
-  const activeIndex = tabs.indexOf(activeTab);
+  const diff = touchEndX - touchStartX;
 
-  if (touchEndX < touchStartX - 50) { // Swipe left
-    const nextTab = tabs[activeIndex + 1];
-    if (nextTab) nextTab.click();
-  } else if (touchEndX > touchStartX + 50) { // Swipe right
-    const prevTab = tabs[activeIndex - 1];
-    if (prevTab) prevTab.click();
+  if (Math.abs(diff) > 50) { // Mora biti barem 50px pomak
+    const tabs = Array.from(document.querySelectorAll(".tab"));
+    const activeTab = document.querySelector(".tab.active");
+    const activeIndex = tabs.indexOf(activeTab);
+
+    if (diff < 0) { // Swipe left
+      const nextTab = tabs[activeIndex + 1];
+      if (nextTab) nextTab.click();
+    } else { // Swipe right
+      const prevTab = tabs[activeIndex - 1];
+      if (prevTab) prevTab.click();
+    }
   }
 }
