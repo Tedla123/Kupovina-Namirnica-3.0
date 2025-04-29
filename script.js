@@ -80,7 +80,6 @@ function switchLanguage(lang) {
 }
 
 
-
 function renderCategories() {
   const container = document.getElementById("categoriesContainer");
   container.innerHTML = "";
@@ -113,9 +112,12 @@ function renderCategories() {
       btn.classList.add('item-button');
 
       let pressTimer;
+      let isLongPress = false;
 
       function startPressTimer() {
+        isLongPress = false;
         pressTimer = window.setTimeout(() => {
+          isLongPress = true;
           showQuantityPopup(item, btn);
         }, 500);
       }
@@ -124,7 +126,7 @@ function renderCategories() {
         clearTimeout(pressTimer);
       }
 
-      // Desktop: mouse events
+      // Desktop events
       btn.addEventListener('mousedown', (e) => {
         e.preventDefault();
         startPressTimer();
@@ -132,16 +134,20 @@ function renderCategories() {
       btn.addEventListener('mouseup', cancelPressTimer);
       btn.addEventListener('mouseleave', cancelPressTimer);
 
-      // Mobile: touch events
+      // Mobile events
       btn.addEventListener('touchstart', (e) => {
         startPressTimer();
       });
-      btn.addEventListener('touchend', cancelPressTimer);
-      btn.addEventListener('touchcancel', cancelPressTimer);
+      btn.addEventListener('touchend', (e) => {
+        cancelPressTimer();
+      });
+      btn.addEventListener('touchcancel', (e) => {
+        cancelPressTimer();
+      });
 
-      // Kratki klik
+      // Regular click
       btn.addEventListener('click', (e) => {
-        if (!pressTimer) { // Ako nije bio long press
+        if (!isLongPress) {
           selectedItems[item] = (selectedItems[item] || 0) + 1;
           btn.classList.add("selected-item");
           renderSelectedItems();
