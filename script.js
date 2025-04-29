@@ -365,28 +365,28 @@ function setupSwipe() {
   let touchStartX = 0;
   let touchEndX = 0;
 
-  document.addEventListener('touchstart', e => {
+  document.addEventListener('touchstart', function(e) {
     touchStartX = e.changedTouches[0].screenX;
   });
 
-  document.addEventListener('touchend', e => {
+  document.addEventListener('touchend', function(e) {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipeGesture();
   });
 }
 
 function handleSwipeGesture() {
-  if (localStorage.getItem("swipeEnabled") !== "true") return;
+  const swipeEnabled = document.getElementById("swipeToggle").checked;
+  if (!swipeEnabled) return;
 
   const tabs = Array.from(document.querySelectorAll(".tab"));
   const activeTab = document.querySelector(".tab.active");
   const activeIndex = tabs.indexOf(activeTab);
 
-  if (touchEndX < touchStartX - 50) {
+  if (touchEndX < touchStartX - 50) { // Swipe left
     const nextTab = tabs[activeIndex + 1];
     if (nextTab) nextTab.click();
-  }
-  if (touchEndX > touchStartX + 50) {
+  } else if (touchEndX > touchStartX + 50) { // Swipe right
     const prevTab = tabs[activeIndex - 1];
     if (prevTab) prevTab.click();
   }
