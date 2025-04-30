@@ -79,14 +79,6 @@ function switchLanguage(lang) {
 }
 
 function renderCategories() {
-
-  catHeader.onclick = () => {
-  document.querySelectorAll(".category").forEach(c => {
-    c.classList.remove("active");
-  });
-  catDiv.classList.add("active");
-};
-
   const container = document.getElementById("categoriesContainer");
   container.innerHTML = "";
 
