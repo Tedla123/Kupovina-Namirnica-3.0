@@ -107,7 +107,7 @@ function renderCategories() {
     const itemDiv = document.createElement("div");
     itemDiv.className = "items";
 
-    items.forEach(item => {
+        items.forEach(item => {
       const btn = document.createElement("button");
       btn.textContent = currentLanguage === "HR" ? item : translations[item] || item;
       btn.classList.add('item-button');
@@ -162,6 +162,7 @@ function renderCategories() {
 
       itemDiv.appendChild(btn);
     });
+
     catDiv.appendChild(itemDiv);
     container.appendChild(catDiv);
   }
