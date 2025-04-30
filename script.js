@@ -1,4 +1,5 @@
-83let touchStartX = 0;
+// Globalne varijable
+let touchStartX = 0;
 let touchEndX = 0;
 
 let categories = {
@@ -28,15 +29,14 @@ let translations = {
 let selectedItems = {};
 let savedLists = [];
 let currentLanguage = "HR";
-let swipeEnabled = true;
 
 window.onload = function () {
   setupTabs();
   setupLanguageButtons();
   renderCategories();
+  activateFirstCategory();
   loadSettings();
   setupSwipe();
-activateFirstCategory()
 };
 
 function setupTabs() {
@@ -59,6 +59,7 @@ function setupLanguageButtons() {
   document.getElementById('hrButton').addEventListener('click', () => switchLanguage('HR'));
   document.getElementById('enButton').addEventListener('click', () => switchLanguage('EN'));
 }
+
 function switchLanguage(lang) {
   currentLanguage = lang;
   document.getElementById("tabFruit").textContent = lang === "HR" ? "Odabir namirnica" : translations["Odabir namirnica"];
@@ -73,28 +74,17 @@ function switchLanguage(lang) {
   document.getElementById("titleSettings").textContent = lang === "HR" ? "Uredi kategorije i namirnice" : translations["Uredi kategorije i namirnice"];
   document.getElementById("btnSaveSettings").textContent = lang === "HR" ? "Spremi postavke" : translations["Spremi postavke"];
 
-  document.querySelector('label[for="swipeToggle"]').childNodes[0].nodeValue = lang === "HR" ? "Swipe između tabova" : translations["Swipe između tabova"];
-  document.querySelector('label[for="verticalScrollToggle"]').childNodes[0].nodeValue = lang === "HR" ? "Prikaži vertikalni scroll bar" : translations["Prikaži vertikalni scroll bar"];
-  document.querySelector('label[for="horizontalScrollToggle"]').childNodes[0].nodeValue = lang === "HR" ? "Prikaži horizontalni scroll bar" : translations["Prikaži horizontalni scroll bar"];
-
   renderCategories();
+  activateFirstCategory();
 }
-
 
 function renderCategories() {
   const container = document.getElementById("categoriesContainer");
   container.innerHTML = "";
 
-  let first = true;
-
   for (let [category, items] of Object.entries(categories)) {
     const catDiv = document.createElement("div");
     catDiv.className = "category";
-
-    if (first) {
-      catDiv.classList.add("active");
-      first = false;
-    }
 
     const catHeader = document.createElement("h3");
     catHeader.textContent = currentLanguage === "HR" ? category : (translations[category] || category);
@@ -107,7 +97,7 @@ function renderCategories() {
     const itemDiv = document.createElement("div");
     itemDiv.className = "items";
 
-        items.forEach(item => {
+    items.forEach(item => {
       const btn = document.createElement("button");
       btn.textContent = currentLanguage === "HR" ? item : translations[item] || item;
       btn.classList.add('item-button');
@@ -116,6 +106,7 @@ function renderCategories() {
       let isLongPress = false;
 
       function startPressTimer() {
+        isLongPress = false;
         pressTimer = window.setTimeout(() => {
           isLongPress = true;
           showQuantityPopup(item, btn);
@@ -126,15 +117,13 @@ function renderCategories() {
         clearTimeout(pressTimer);
       }
 
-      // Desktop events
       btn.addEventListener('mousedown', (e) => {
-        isLongPress = false;
+        e.preventDefault();
         startPressTimer();
       });
       btn.addEventListener('mouseup', cancelPressTimer);
       btn.addEventListener('mouseleave', cancelPressTimer);
 
-      // Mobile events
       btn.addEventListener('touchstart', (e) => {
         isLongPress = false;
         startPressTimer();
@@ -150,7 +139,6 @@ function renderCategories() {
       });
       btn.addEventListener('touchcancel', cancelPressTimer);
 
-      // Regular desktop click
       btn.addEventListener('click', (e) => {
         if (!isLongPress && !("ontouchstart" in window)) {
           selectedItems[item] = (selectedItems[item] || 0) + 1;
@@ -168,6 +156,13 @@ function renderCategories() {
   }
 }
 
+function activateFirstCategory() {
+  const allCategories = document.querySelectorAll(".category");
+  allCategories.forEach(c => c.classList.remove("active"));
+  if (allCategories.length > 0) {
+    allCategories[0].classList.add("active");
+  }
+}
 
 function showQuantityPopup(item, button) {
   const quantity = prompt(currentLanguage === "HR" ? "Unesite količinu za " + item + ":" : "Enter quantity for " + item + ":");
@@ -182,8 +177,6 @@ function showFloatingPlus(button) {
   const plus = document.createElement('div');
   plus.textContent = "+1";
   plus.className = "floating-plus";
-
-  // Postavi poziciju "+1" relativno na gumb
   plus.style.position = "absolute";
   plus.style.left = "50%";
   plus.style.top = "0";
@@ -195,7 +188,7 @@ function showFloatingPlus(button) {
   plus.style.pointerEvents = "none";
   plus.style.zIndex = "1000";
 
-  button.style.position = "relative"; // Bitno da gumb ima relativnu poziciju
+  button.style.position = "relative";
   button.appendChild(plus);
 
   setTimeout(() => {
@@ -250,6 +243,7 @@ function renderSelectedItems() {
   }
 }
 
+
 function saveShoppingList() {
   if (Object.keys(selectedItems).length === 0) {
     alert(currentLanguage === "HR" ? "Popis je prazan!" : "The list is empty!");
@@ -287,6 +281,7 @@ function renderSavedLists() {
     savedContainer.appendChild(wrapper);
   });
 }
+
 function exportShoppingList() {
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(selectedItems));
   const dlAnchor = document.createElement("a");
@@ -317,12 +312,7 @@ function clearShoppingList() {
     selectedItems = {};
     renderSelectedItems();
     renderCategories();
-
-    // Aktiviraj prvu kategoriju
-    const firstCategory = document.querySelector(".category");
-    if (firstCategory) {
-      firstCategory.classList.add("active");
-    }
+    activateFirstCategory();
   }
 }
 
@@ -400,7 +390,6 @@ function saveSettings() {
   alert(currentLanguage === "HR" ? "Postavke spremljene!" : "Settings saved!");
 }
 
-
 function setupSwipe() {
   document.addEventListener('touchstart', function(e) {
     touchStartX = e.changedTouches[0].screenX;
@@ -417,27 +406,16 @@ function handleSwipeGesture() {
   if (!swipeEnabled) return;
 
   const diff = touchEndX - touchStartX;
-
-  if (Math.abs(diff) > 50) { // Mora biti barem 50px pomak
+  if (Math.abs(diff) > 50) {
     const tabs = Array.from(document.querySelectorAll(".tab"));
     const activeTab = document.querySelector(".tab.active");
     const activeIndex = tabs.indexOf(activeTab);
-
-    if (diff < 0) { // Swipe left
+    if (diff < 0) {
       const nextTab = tabs[activeIndex + 1];
       if (nextTab) nextTab.click();
-    } else { // Swipe right
+    } else {
       const prevTab = tabs[activeIndex - 1];
       if (prevTab) prevTab.click();
     }
-  }
-}
-
-
-function activateFirstCategory() {
-  const allCategories = document.querySelectorAll(".category");
-  allCategories.forEach(c => c.classList.remove("active"));
-  if (allCategories.length > 0) {
-    allCategories[0].classList.add("active");
   }
 }
