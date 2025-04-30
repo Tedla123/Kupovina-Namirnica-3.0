@@ -299,14 +299,21 @@ function importShoppingList(event) {
     try {
       const data = JSON.parse(e.target.result);
       selectedItems = data;
-      renderSelectedItems();
-      showPopup(currentLanguage === "HR" ? "Popis uvezen!" : "List imported!");
+
+      // Prebaci na prikaz
+      document.getElementById("tabShoppingList").click();
+
+      setTimeout(() => {
+        renderSelectedItems();
+        showPopup(currentLanguage === "HR" ? "Popis uvezen!" : "List imported!");
+      }, 100); // mali delay kako bi DOM stigao renderirati
     } catch {
       showPopup(currentLanguage === "HR" ? "Greška pri učitavanju datoteke." : "Error loading file.");
     }
   };
   reader.readAsText(file);
 }
+
 
 function showPopup(message) {
   const popup = document.getElementById("popupMessage");
