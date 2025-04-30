@@ -26,7 +26,7 @@
   <button id="btnSaveList" onclick="saveShoppingList()" title="Spremi trenutni popis"><i class="fas fa-file-alt"></i></button>
   <button id="btnExportList" onclick="exportShoppingList()" title="Izvezi popis"><i class="fas fa-arrow-down"></i></button>
   <label for="importFile" class="custom-file-label" id="btnImportList" title="Uvezi popis"><i class="fas fa-arrow-up"></i></label>
-  <input type="file" id="importFile" accept="application/json" onchange="importShoppingList(event)">
+  <input type="file" id="importFile" accept=".json,.smartcart" onchange="importShoppingList(event)">
   <button id="btnClearList" onclick="clearShoppingList()" title="Obriši popis"><i class="fas fa-trash"></i></button>
 
   <div id="selectedCategoriesView"></div>
