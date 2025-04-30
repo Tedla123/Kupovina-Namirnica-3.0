@@ -455,12 +455,11 @@ function handleSwipeGesture() {
 }
 function shareShoppingList() {
   const json = JSON.stringify(selectedItems);
-
-  // Opcija A: Dijeljenje kao .smartcart datoteka (Blob)
   const file = new File([json], "popis.smartcart", {
     type: "application/x.smartcart"
   });
 
+  // Provjeri podržava li uređaj dijeljenje datoteka
   if (navigator.canShare && navigator.canShare({ files: [file] })) {
     navigator.share({
       title: "SmartCart Popis",
@@ -468,13 +467,18 @@ function shareShoppingList() {
       files: [file]
     }).catch(err => {
       console.log("Dijeljenje prekinuto:", err);
+      fallbackToLink(json); // ako korisnik odustane
     });
   } else {
-    // Opcija B: Dijeljenje kao link s enkodiranim JSON-om
-    const encoded = btoa(unescape(encodeURIComponent(json)));
-    const shareUrl = `${window.location.origin}${window.location.pathname}?popis=${encoded}`;
-
-    // Otvori dijalog s kopiranjem linka
-    prompt("Kopiraj ovaj link i podijeli ga:", shareUrl);
+    fallbackToLink(json); // ako uređaj ne podržava datoteke
   }
+}
+function fallbackToLink(json) {
+  const encoded = btoa(unescape(encodeURIComponent(json)));
+  const shareUrl = `${window.location.origin}${window.location.pathname}?popis=${encoded}`;
+  prompt(currentLanguage === "HR"
+    ? "Na ovom uređaju nije moguće podijeliti datoteku.\nKopiraj ovaj link:"
+    : "This device can't share files.\nCopy this link to share your list:",
+    shareUrl
+  );
 }
