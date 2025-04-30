@@ -31,6 +31,14 @@ let savedLists = [];
 let currentLanguage = "HR";
 
 window.onload = function () {
+  setupTabs();
+  setupLanguageButtons();
+  renderCategories();
+  activateFirstCategory();
+  loadSettings();
+  setupSwipe();
+
+  // Na kraju – obradi link ako postoji
   const urlParams = new URLSearchParams(window.location.search);
   const encoded = urlParams.get("popis");
   if (encoded) {
@@ -38,19 +46,15 @@ window.onload = function () {
       const decoded = decodeURIComponent(escape(atob(encoded)));
       selectedItems = JSON.parse(decoded);
       renderSelectedItems();
+
+      // Aktiviraj tab "Popis za kupovinu"
       document.getElementById("tabShoppingList").click();
     } catch {
-      alert("Neuspjelo učitavanje popisa iz linka.");
+      alert("Greška pri učitavanju podataka iz linka.");
     }
   }
-
-  setupTabs();
-  setupLanguageButtons();
-  renderCategories();
-  activateFirstCategory();
-  loadSettings();
-  setupSwipe();
 };
+
 
 
 function setupTabs() {
@@ -453,32 +457,46 @@ function handleSwipeGesture() {
     }
   }
 }
+
+
 function shareShoppingList() {
   const json = JSON.stringify(selectedItems);
   const file = new File([json], "popis.smartcart", {
     type: "application/x.smartcart"
   });
 
-  // Provjeri podržava li uređaj dijeljenje datoteka
-  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isFileShareSupported = navigator.canShare && navigator.canShare({ files: [file] });
+
+  if (isMobile && isFileShareSupported) {
     navigator.share({
       title: "SmartCart Popis",
       text: "Pogledaj moj popis za kupovinu:",
       files: [file]
     }).catch(err => {
       console.log("Dijeljenje prekinuto:", err);
-      fallbackToLink(json); // ako korisnik odustane
+      alert(currentLanguage === "HR"
+        ? "Nije moguće podijeliti datoteku. Dijelim kao link..."
+        : "Unable to share file. Falling back to link...");
+      fallbackToLink(json);
     });
   } else {
-    fallbackToLink(json); // ako uređaj ne podržava datoteke
+    fallbackToLink(json);
   }
 }
+
 function fallbackToLink(json) {
   const encoded = btoa(unescape(encodeURIComponent(json)));
   const shareUrl = `${window.location.origin}${window.location.pathname}?popis=${encoded}`;
-  prompt(currentLanguage === "HR"
-    ? "Na ovom uređaju nije moguće podijeliti datoteku.\nKopiraj ovaj link:"
-    : "This device can't share files.\nCopy this link to share your list:",
-    shareUrl
-  );
+
+  navigator.clipboard.writeText(shareUrl).then(() => {
+    showPopup(currentLanguage === "HR"
+      ? "Link kopiran u međuspremnik!"
+      : "Link copied to clipboard!");
+  }).catch(() => {
+    alert(currentLanguage === "HR"
+      ? "Kopiranje linka nije uspjelo."
+      : "Failed to copy link.");
+  });
 }
+
