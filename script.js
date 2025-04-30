@@ -283,28 +283,40 @@ function renderSavedLists() {
 }
 
 function exportShoppingList() {
-  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(selectedItems));
+  const dataStr = "data:application/x.smartcart;charset=utf-8," + encodeURIComponent(JSON.stringify(selectedItems));
   const dlAnchor = document.createElement("a");
   dlAnchor.setAttribute("href", dataStr);
-  dlAnchor.setAttribute("download", `popis-${new Date().toLocaleDateString('hr-HR')}.json`);
+  dlAnchor.setAttribute("download", `popis-${new Date().toLocaleDateString('hr-HR')}.smartcart`);
   dlAnchor.click();
 }
 
 function importShoppingList(event) {
   const file = event.target.files[0];
   if (!file) return;
+
   const reader = new FileReader();
   reader.onload = function (e) {
     try {
       const data = JSON.parse(e.target.result);
       selectedItems = data;
       renderSelectedItems();
-      alert(currentLanguage === "HR" ? "Popis uvezen!" : "List imported!");
+      showPopup(currentLanguage === "HR" ? "Popis uvezen!" : "List imported!");
     } catch {
-      alert(currentLanguage === "HR" ? "Greška pri učitavanju datoteke." : "Error loading file.");
+      showPopup(currentLanguage === "HR" ? "Greška pri učitavanju datoteke." : "Error loading file.");
     }
   };
   reader.readAsText(file);
+}
+
+function showPopup(message) {
+  const popup = document.getElementById("popupMessage");
+  popup.textContent = message;
+  popup.style.display = "block";
+  popup.classList.add("show");
+  setTimeout(() => {
+    popup.classList.remove("show");
+    popup.style.display = "none";
+  }, 2000);
 }
 
 function clearShoppingList() {
