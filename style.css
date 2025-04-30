@@ -22,6 +22,9 @@ body {
   background: #f9f9f9;
   transition: all 0.3s ease-in-out;
 }
+.items {
+  max-height: 0;
+  overflow
 
 .tab.active {
   color: #0078d4;
