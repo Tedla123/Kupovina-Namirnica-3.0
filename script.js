@@ -31,6 +31,19 @@ let savedLists = [];
 let currentLanguage = "HR";
 
 window.onload = function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const encoded = urlParams.get("popis");
+  if (encoded) {
+    try {
+      const decoded = decodeURIComponent(escape(atob(encoded)));
+      selectedItems = JSON.parse(decoded);
+      renderSelectedItems();
+      document.getElementById("tabShoppingList").click();
+    } catch {
+      alert("Neuspjelo učitavanje popisa iz linka.");
+    }
+  }
+
   setupTabs();
   setupLanguageButtons();
   renderCategories();
@@ -38,6 +51,7 @@ window.onload = function () {
   loadSettings();
   setupSwipe();
 };
+
 
 function setupTabs() {
   document.querySelectorAll(".tab").forEach(tab => {
@@ -54,6 +68,7 @@ function setupTabs() {
     });
   });
 }
+
 
 function setupLanguageButtons() {
   document.getElementById('hrButton').addEventListener('click', () => switchLanguage('HR'));
@@ -436,5 +451,30 @@ function handleSwipeGesture() {
       const prevTab = tabs[activeIndex - 1];
       if (prevTab) prevTab.click();
     }
+  }
+}
+function shareShoppingList() {
+  const json = JSON.stringify(selectedItems);
+
+  // Opcija A: Dijeljenje kao .smartcart datoteka (Blob)
+  const file = new File([json], "popis.smartcart", {
+    type: "application/x.smartcart"
+  });
+
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    navigator.share({
+      title: "SmartCart Popis",
+      text: "Pogledaj moj popis za kupovinu:",
+      files: [file]
+    }).catch(err => {
+      console.log("Dijeljenje prekinuto:", err);
+    });
+  } else {
+    // Opcija B: Dijeljenje kao link s enkodiranim JSON-om
+    const encoded = btoa(unescape(encodeURIComponent(json)));
+    const shareUrl = `${window.location.origin}${window.location.pathname}?popis=${encoded}`;
+
+    // Otvori dijalog s kopiranjem linka
+    prompt("Kopiraj ovaj link i podijeli ga:", shareUrl);
   }
 }
