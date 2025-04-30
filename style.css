@@ -24,7 +24,9 @@ body {
 }
 .items {
   max-height: 0;
-  overflow
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
 
 .tab.active {
   color: #0078d4;
