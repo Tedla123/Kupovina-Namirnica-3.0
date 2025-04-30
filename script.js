@@ -116,7 +116,6 @@ function renderCategories() {
       let isLongPress = false;
 
       function startPressTimer() {
-        isLongPress = false;
         pressTimer = window.setTimeout(() => {
           isLongPress = true;
           showQuantityPopup(item, btn);
@@ -129,7 +128,7 @@ function renderCategories() {
 
       // Desktop events
       btn.addEventListener('mousedown', (e) => {
-        e.preventDefault();
+        isLongPress = false;
         startPressTimer();
       });
       btn.addEventListener('mouseup', cancelPressTimer);
@@ -137,18 +136,23 @@ function renderCategories() {
 
       // Mobile events
       btn.addEventListener('touchstart', (e) => {
+        isLongPress = false;
         startPressTimer();
       });
       btn.addEventListener('touchend', (e) => {
         cancelPressTimer();
-      });
-      btn.addEventListener('touchcancel', (e) => {
-        cancelPressTimer();
-      });
-
-      // Regular click
-      btn.addEventListener('click', (e) => {
         if (!isLongPress) {
+          selectedItems[item] = (selectedItems[item] || 0) + 1;
+          btn.classList.add("selected-item");
+          renderSelectedItems();
+          showFloatingPlus(btn);
+        }
+      });
+      btn.addEventListener('touchcancel', cancelPressTimer);
+
+      // Regular desktop click
+      btn.addEventListener('click', (e) => {
+        if (!isLongPress && !("ontouchstart" in window)) {
           selectedItems[item] = (selectedItems[item] || 0) + 1;
           btn.classList.add("selected-item");
           renderSelectedItems();
@@ -158,11 +162,9 @@ function renderCategories() {
 
       itemDiv.appendChild(btn);
     });
-
     catDiv.appendChild(itemDiv);
     container.appendChild(catDiv);
   }
-activateFirstCategory()
 }
 
 
