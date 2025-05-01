@@ -30,6 +30,8 @@ let selectedItems = {};
 let savedLists = [];
 let currentLanguage = "HR";
 
+
+
 window.onload = function () {
   setupTabs();
   setupLanguageButtons();
@@ -37,6 +39,7 @@ window.onload = function () {
   activateFirstCategory();
   loadSettings();
   setupSwipe();
+  loadTemplateJSON(); // <-- dodano
 
   // Na kraju – obradi link ako postoji
   const urlParams = new URLSearchParams(window.location.search);
@@ -586,6 +589,91 @@ function fallbackToLink(json) {
       ? "Kopiranje linka nije uspjelo."
       : "Failed to copy link.");
   });
+}
+
+
+// Firebase konfiguracija i predložak
+let firebaseApp, database, activeListId = null;
+let templateData = [];
+let settings = { language: "hr" };
+let hasImportedTemplate = localStorage.getItem("templateImported") === "true";
+
+function initializeFirebase(config) {
+  firebaseApp = firebase.initializeApp(config);
+  database = firebase.database();
+}
+
+function connectToList(listId) {
+  activeListId = listId;
+  listenToFirebaseItems();
+  updateFirebaseItems();
+  document.getElementById("connectedListInfo").textContent = `Povezano s popisom: ${listId}`;
+}
+
+function updateFirebaseItems() {
+  if (!database || !activeListId) return;
+  database.ref(`popisi/${activeListId}`).set(selectedItems);
+}
+
+function listenToFirebaseItems() {
+  if (!database || !activeListId) return;
+  database.ref(`popisi/${activeListId}`).on("value", (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+      selectedItems = data;
+      renderSelectedItems();
+      renderCategories();
+    }
+  });
+}
+
+function loadTemplateJSON() {
+  fetch("smartcart_predlozak_namirnica.json")
+    .then(response => response.json())
+    .then(data => {
+      templateData = data;
+      populateCountryDropdown();
+      if (!hasImportedTemplate) {
+        importTemplate("Hrvatska", settings.language);
+        localStorage.setItem("templateImported", "true");
+      }
+    });
+}
+
+function populateCountryDropdown() {
+  const countries = [...new Set(templateData.map(entry => entry.country))];
+  const dropdown = document.getElementById("countryDropdown");
+  countries.forEach(country => {
+    const option = document.createElement("option");
+    option.value = country;
+    option.textContent = country;
+    dropdown.appendChild(option);
+  });
+  dropdown.value = "Hrvatska";
+}
+
+function confirmAndImport() {
+  const selectedCountry = document.getElementById("countryDropdown").value;
+  if (confirm(settings.language === "hr" ?
+      `Želite li zamijeniti postojeći popis namirnica s predloškom za zemlju ${selectedCountry}?`
+      : `Replace current items with the template for ${selectedCountry}?`)) {
+    importTemplate(selectedCountry, settings.language);
+  }
+}
+
+function importTemplate(country, language) {
+  const filtered = templateData.filter(entry => entry.country === country);
+  const newCategories = {};
+  let totalItems = 0;
+  filtered.forEach(entry => {
+    const cat = entry.category;
+    const items = entry.items.map(i => i[`name_${language}`] || i.name_hr);
+    newCategories[cat] = items;
+    totalItems += items.length;
+  });
+  categories = newCategories;
+  renderCategories();
+  showPopup(`Uvezen predložak za zemlju: ${country} (${Object.keys(categories).length} kategorija, ${totalItems} namirnica).`);
 }
 
 
