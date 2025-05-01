@@ -1,0 +1,1506 @@
+[
+  {
+    "country": "Argentina",
+    "category": "Mesni proizvodi",
+    "items": [
+      {
+        "name_hr": "Goveđi odrezak",
+        "name_en": "Beef steak",
+        "name_de": "Rindersteak"
+      }
+    ]
+  },
+  {
+    "country": "Brazil",
+    "category": "Piće",
+    "items": [
+      {
+        "name_hr": "Guarana sok",
+        "name_en": "Guarana soda",
+        "name_de": "Guarana Limonade"
+      }
+    ]
+  },
+  {
+    "country": "Danska",
+    "category": "Mliječni proizvodi i namazi",
+    "items": [
+      {
+        "name_hr": "Danbo sir",
+        "name_en": "Danbo cheese",
+        "name_de": "Danbo Käse"
+      }
+    ]
+  },
+  {
+    "country": "Egipat",
+    "category": "Pekarski proizvodi i žitarice",
+    "items": [
+      {
+        "name_hr": "Baladi kruh",
+        "name_en": "Baladi bread",
+        "name_de": "Baladi Brot"
+      }
+    ]
+  },
+  {
+    "country": "Finska",
+    "category": "Pekarski proizvodi i žitarice",
+    "items": [
+      {
+        "name_hr": "Ruisleipä",
+        "name_en": "Rye bread",
+        "name_de": "Roggenbrot"
+      }
+    ]
+  },
+  {
+    "country": "Francuska",
+    "category": "Lokalni specijaliteti",
+    "items": [
+      {
+        "name_hr": "Foie gras",
+        "name_en": "Foie gras",
+        "name_de": "Gänseleberpastete"
+      }
+    ]
+  },
+  {
+    "country": "Francuska",
+    "category": "Mliječni proizvodi i namazi",
+    "items": [
+      {
+        "name_hr": "Camembert",
+        "name_en": "Camembert",
+        "name_de": "Camembert"
+      }
+    ]
+  },
+  {
+    "country": "Francuska",
+    "category": "Pekarski proizvodi i žitarice",
+    "items": [
+      {
+        "name_hr": "Baguette",
+        "name_en": "Baguette",
+        "name_de": "Baguette"
+      }
+    ]
+  },
+  {
+    "country": "Grčka",
+    "category": "Mliječni proizvodi i namazi",
+    "items": [
+      {
+        "name_hr": "Feta",
+        "name_en": "Feta cheese",
+        "name_de": "Feta Käse"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Dodaci prehrani i ljekarnički proizvodi",
+    "items": [
+      {
+        "name_hr": "Čaj od kamilice",
+        "name_en": "Chamomile tea",
+        "name_de": "Kamillentee"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Kolači",
+    "items": [
+      {
+        "name_hr": "Kore za štrudlu",
+        "name_en": "Kore za štrudlu",
+        "name_de": "Kore za štrudlu"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Konzervirani i gotovi proizvodi",
+    "items": [
+      {
+        "name_hr": "Ajvar blagi",
+        "name_en": "Ajvar blagi",
+        "name_de": "Ajvar blagi"
+      },
+      {
+        "name_hr": "Ajvar ljuti",
+        "name_en": "Ajvar ljuti",
+        "name_de": "Ajvar ljuti"
+      },
+      {
+        "name_hr": "Masline",
+        "name_en": "Masline",
+        "name_de": "Masline"
+      },
+      {
+        "name_hr": "Masline zelene",
+        "name_en": "Masline zelene",
+        "name_de": "Masline zelene"
+      },
+      {
+        "name_hr": "Parmezan ribani",
+        "name_en": "Parmezan ribani",
+        "name_de": "Parmezan ribani"
+      },
+      {
+        "name_hr": "Pelati",
+        "name_en": "Pelati",
+        "name_de": "Pelati"
+      },
+      {
+        "name_hr": "Pašteta",
+        "name_en": "Pašteta",
+        "name_de": "Pašteta"
+      },
+      {
+        "name_hr": "Ribanac (ribani sir)",
+        "name_en": "Ribanac (ribani sir)",
+        "name_de": "Ribanac (ribani sir)"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Kućna higijena i čišćenje",
+    "items": [
+      {
+        "name_hr": "Detergent za crno rublje",
+        "name_en": "Detergent za crno rublje",
+        "name_de": "Detergent za crno rublje"
+      },
+      {
+        "name_hr": "Detergent za šareno rublje",
+        "name_en": "Detergent za šareno rublje",
+        "name_de": "Detergent za šareno rublje"
+      },
+      {
+        "name_hr": "Detergent za veš Persil",
+        "name_en": "Detergent za veš Persil",
+        "name_de": "Detergent za veš Persil"
+      },
+      {
+        "name_hr": "Gumene rukavice",
+        "name_en": "Gumene rukavice",
+        "name_de": "Gumene rukavice"
+      },
+      {
+        "name_hr": "Omekšivač",
+        "name_en": "Omekšivač",
+        "name_de": "Omekšivač"
+      },
+      {
+        "name_hr": "Sjajilo za mašinu",
+        "name_en": "Sjajilo za mašinu",
+        "name_de": "Sjajilo za mašinu"
+      },
+      {
+        "name_hr": "Spužve za pranje",
+        "name_en": "Spužve za pranje",
+        "name_de": "Spužve za pranje"
+      },
+      {
+        "name_hr": "Sredstvo za čišćenje stakla",
+        "name_en": "Sredstvo za čišćenje stakla",
+        "name_de": "Sredstvo za čišćenje stakla"
+      },
+      {
+        "name_hr": "Sredstvo za drvenih površina",
+        "name_en": "Sredstvo za drvenih površina",
+        "name_de": "Sredstvo za drvenih površina"
+      },
+      {
+        "name_hr": "Tablete za mašinu",
+        "name_en": "Tablete za mašinu",
+        "name_de": "Tablete za mašinu"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Lokalni specijaliteti",
+    "items": [
+      {
+        "name_hr": "Slavonski kulen",
+        "name_en": "Slavonian kulen",
+        "name_de": "Slawonischer Kulen"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Mesni proizvodi",
+    "items": [
+      {
+        "name_hr": "Mljeveno meso",
+        "name_en": "Mljeveno meso",
+        "name_de": "Mljeveno meso"
+      },
+      {
+        "name_hr": "Pile",
+        "name_en": "Pile",
+        "name_de": "Pile"
+      },
+      {
+        "name_hr": "Poli salama",
+        "name_en": "Poli salama",
+        "name_de": "Poli salama"
+      },
+      {
+        "name_hr": "Zimska salama",
+        "name_en": "Zimska salama",
+        "name_de": "Zimska salama"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Mliječni proizvodi i namazi",
+    "items": [
+      {
+        "name_hr": "ABC sir",
+        "name_en": "ABC sir",
+        "name_de": "ABC sir"
+      },
+      {
+        "name_hr": "Edamer",
+        "name_en": "Edamer",
+        "name_de": "Edamer"
+      },
+      {
+        "name_hr": "Gouda",
+        "name_en": "Gouda",
+        "name_de": "Gouda"
+      },
+      {
+        "name_hr": "Jaja",
+        "name_en": "Eggs",
+        "name_de": "Eier"
+      },
+      {
+        "name_hr": "Kefir",
+        "name_en": "Kefir",
+        "name_de": "Kefir"
+      },
+      {
+        "name_hr": "Kiselo vrhnje",
+        "name_en": "Kiselo vrhnje",
+        "name_de": "Kiselo vrhnje"
+      },
+      {
+        "name_hr": "Lino Lada",
+        "name_en": "Lino Lada",
+        "name_de": "Lino Lada"
+      },
+      {
+        "name_hr": "Margarin",
+        "name_en": "Margarin",
+        "name_de": "Margarin"
+      },
+      {
+        "name_hr": "Mascarpone",
+        "name_en": "Mascarpone",
+        "name_de": "Mascarpone"
+      },
+      {
+        "name_hr": "Maslac",
+        "name_en": "Maslac",
+        "name_de": "Maslac"
+      },
+      {
+        "name_hr": "Mlijeko svježe",
+        "name_en": "Mlijeko svježe",
+        "name_de": "Mlijeko svježe"
+      },
+      {
+        "name_hr": "Mlijeko trajno",
+        "name_en": "Mlijeko trajno",
+        "name_de": "Mlijeko trajno"
+      },
+      {
+        "name_hr": "Mozzarella",
+        "name_en": "Mozzarella",
+        "name_de": "Mozzarella"
+      },
+      {
+        "name_hr": "Nutella",
+        "name_en": "Nutella",
+        "name_de": "Nutella"
+      },
+      {
+        "name_hr": "Parmezan",
+        "name_en": "Parmezan",
+        "name_de": "Parmezan"
+      },
+      {
+        "name_hr": "Sirni namaz",
+        "name_en": "Sirni namaz",
+        "name_de": "Sirni namaz"
+      },
+      {
+        "name_hr": "Tekući jogurt",
+        "name_en": "Tekući jogurt",
+        "name_de": "Tekući jogurt"
+      },
+      {
+        "name_hr": "Voćni jogurt",
+        "name_en": "Voćni jogurt",
+        "name_de": "Voćni jogurt"
+      },
+      {
+        "name_hr": "Vrhnje za kuhanje",
+        "name_en": "Vrhnje za kuhanje",
+        "name_de": "Vrhnje za kuhanje"
+      },
+      {
+        "name_hr": "Vrhnje za šlag",
+        "name_en": "Vrhnje za šlag",
+        "name_de": "Vrhnje za šlag"
+      },
+      {
+        "name_hr": "Zdenka sir",
+        "name_en": "Zdenka sir",
+        "name_de": "Zdenka sir"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Osobna higijena i kozmetika",
+    "items": [
+      {
+        "name_hr": "Četkica za zube",
+        "name_en": "Četkica za zube",
+        "name_de": "Četkica za zube"
+      },
+      {
+        "name_hr": "Dezodorans",
+        "name_en": "Dezodorans",
+        "name_de": "Dezodorans"
+      },
+      {
+        "name_hr": "Gel za tuširanje",
+        "name_en": "Gel za tuširanje",
+        "name_de": "Gel za tuširanje"
+      },
+      {
+        "name_hr": "Maramice vlažne",
+        "name_en": "Maramice vlažne",
+        "name_de": "Maramice vlažne"
+      },
+      {
+        "name_hr": "Papirnati ručnici",
+        "name_en": "Papirnati ručnici",
+        "name_de": "Papirnati ručnici"
+      },
+      {
+        "name_hr": "Pasta za zube",
+        "name_en": "Pasta za zube",
+        "name_de": "Pasta za zube"
+      },
+      {
+        "name_hr": "Pjena za brijanje",
+        "name_en": "Pjena za brijanje",
+        "name_de": "Pjena za brijanje"
+      },
+      {
+        "name_hr": "Regenerator",
+        "name_en": "Regenerator",
+        "name_de": "Regenerator"
+      },
+      {
+        "name_hr": "Sapun kruti",
+        "name_en": "Sapun kruti",
+        "name_de": "Sapun kruti"
+      },
+      {
+        "name_hr": "Šampon",
+        "name_en": "Shampoo",
+        "name_de": "Shampoo"
+      },
+      {
+        "name_hr": "Tekući sapun",
+        "name_en": "Tekući sapun",
+        "name_de": "Tekući sapun"
+      },
+      {
+        "name_hr": "WC papir",
+        "name_en": "Toilet paper",
+        "name_de": "Toilettenpapier"
+      },
+      {
+        "name_hr": "Žileti",
+        "name_en": "Žileti",
+        "name_de": "Žileti"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Piće",
+    "items": [
+      {
+        "name_hr": "Cedevita",
+        "name_en": "Cedevita",
+        "name_de": "Cedevita"
+      },
+      {
+        "name_hr": "Coca Cola",
+        "name_en": "Coca Cola",
+        "name_de": "Coca Cola"
+      },
+      {
+        "name_hr": "Čaj kamilica",
+        "name_en": "Čaj kamilica",
+        "name_de": "Čaj kamilica"
+      },
+      {
+        "name_hr": "Čaj šumsko voće",
+        "name_en": "Čaj šumsko voće",
+        "name_de": "Čaj šumsko voće"
+      },
+      {
+        "name_hr": "Čaj Twinings",
+        "name_en": "Čaj Twinings",
+        "name_de": "Čaj Twinings"
+      },
+      {
+        "name_hr": "Kava",
+        "name_en": "Coffee",
+        "name_de": "Kaffee"
+      },
+      {
+        "name_hr": "Pivo",
+        "name_en": "Beer",
+        "name_de": "Bier"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Povrće",
+    "items": [
+      {
+        "name_hr": "Batat",
+        "name_en": "Batat",
+        "name_de": "Batat"
+      },
+      {
+        "name_hr": "Blitva",
+        "name_en": "Blitva",
+        "name_de": "Blitva"
+      },
+      {
+        "name_hr": "Brokula",
+        "name_en": "Brokula",
+        "name_de": "Brokula"
+      },
+      {
+        "name_hr": "Celer",
+        "name_en": "Celer",
+        "name_de": "Celer"
+      },
+      {
+        "name_hr": "Cikla",
+        "name_en": "Cikla",
+        "name_de": "Cikla"
+      },
+      {
+        "name_hr": "Crveni luk",
+        "name_en": "Crveni luk",
+        "name_de": "Crveni luk"
+      },
+      {
+        "name_hr": "Cvjetača",
+        "name_en": "Cvjetača",
+        "name_de": "Cvjetača"
+      },
+      {
+        "name_hr": "Češnjak",
+        "name_en": "Češnjak",
+        "name_de": "Češnjak"
+      },
+      {
+        "name_hr": "Grah",
+        "name_en": "Grah",
+        "name_de": "Grah"
+      },
+      {
+        "name_hr": "Hren",
+        "name_en": "Hren",
+        "name_de": "Hren"
+      },
+      {
+        "name_hr": "Kelj",
+        "name_en": "Kelj",
+        "name_de": "Kelj"
+      },
+      {
+        "name_hr": "Kiseli kupus",
+        "name_en": "Kiseli kupus",
+        "name_de": "Kiseli kupus"
+      },
+      {
+        "name_hr": "Krastavac",
+        "name_en": "Krastavac",
+        "name_de": "Krastavac"
+      },
+      {
+        "name_hr": "Krumpir",
+        "name_en": "Potato",
+        "name_de": "Kartoffel"
+      },
+      {
+        "name_hr": "Kukuruz šećerac",
+        "name_en": "Kukuruz šećerac",
+        "name_de": "Kukuruz šećerac"
+      },
+      {
+        "name_hr": "Kupus",
+        "name_en": "Kupus",
+        "name_de": "Kupus"
+      },
+      {
+        "name_hr": "Matovilac",
+        "name_en": "Matovilac",
+        "name_de": "Matovilac"
+      },
+      {
+        "name_hr": "Mladi luk",
+        "name_en": "Mladi luk",
+        "name_de": "Mladi luk"
+      },
+      {
+        "name_hr": "Mrkva",
+        "name_en": "Mrkva",
+        "name_de": "Mrkva"
+      },
+      {
+        "name_hr": "Paprika babura",
+        "name_en": "Paprika babura",
+        "name_de": "Paprika babura"
+      },
+      {
+        "name_hr": "Paprika rog",
+        "name_en": "Paprika rog",
+        "name_de": "Paprika rog"
+      },
+      {
+        "name_hr": "Patlidžan",
+        "name_en": "Patlidžan",
+        "name_de": "Patlidžan"
+      },
+      {
+        "name_hr": "Poriluk",
+        "name_en": "Poriluk",
+        "name_de": "Poriluk"
+      },
+      {
+        "name_hr": "Prokulice",
+        "name_en": "Prokulice",
+        "name_de": "Prokulice"
+      },
+      {
+        "name_hr": "Rajčica",
+        "name_en": "Tomato",
+        "name_de": "Tomate"
+      },
+      {
+        "name_hr": "Rikola",
+        "name_en": "Rikola",
+        "name_de": "Rikola"
+      },
+      {
+        "name_hr": "Rotkvica",
+        "name_en": "Rotkvica",
+        "name_de": "Rotkvica"
+      },
+      {
+        "name_hr": "Špinat",
+        "name_en": "Špinat",
+        "name_de": "Špinat"
+      },
+      {
+        "name_hr": "Tikva",
+        "name_en": "Tikva",
+        "name_de": "Tikva"
+      },
+      {
+        "name_hr": "Tikvica",
+        "name_en": "Tikvica",
+        "name_de": "Tikvica"
+      },
+      {
+        "name_hr": "Zelena salata",
+        "name_en": "Zelena salata",
+        "name_de": "Zelena salata"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Sezonski proizvodi",
+    "items": [
+      {
+        "name_hr": "Uskrsna jaja",
+        "name_en": "Easter eggs",
+        "name_de": "Ostereier"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Slatko",
+    "items": [
+      {
+        "name_hr": "Kinder čokolada",
+        "name_en": "Kinder čokolada",
+        "name_de": "Kinder čokolada"
+      },
+      {
+        "name_hr": "Kinder jaje",
+        "name_en": "Kinder jaje",
+        "name_de": "Kinder jaje"
+      },
+      {
+        "name_hr": "Kinder Pingui",
+        "name_en": "Kinder Pingui",
+        "name_de": "Kinder Pingui"
+      },
+      {
+        "name_hr": "Monte",
+        "name_en": "Monte",
+        "name_de": "Monte"
+      },
+      {
+        "name_hr": "Puding",
+        "name_en": "Puding",
+        "name_de": "Puding"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Smrznuto",
+    "items": [
+      {
+        "name_hr": "Kedle",
+        "name_en": "Kedle",
+        "name_de": "Kedle"
+      },
+      {
+        "name_hr": "Oslić",
+        "name_en": "Oslić",
+        "name_de": "Oslić"
+      },
+      {
+        "name_hr": "Riblji štapići",
+        "name_en": "Riblji štapići",
+        "name_de": "Riblji štapići"
+      },
+      {
+        "name_hr": "Špinat",
+        "name_en": "Špinat",
+        "name_de": "Špinat"
+      },
+      {
+        "name_hr": "Štrukle",
+        "name_en": "Štrukle",
+        "name_de": "Štrukle"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Suhi prilozi i žitarice",
+    "items": [
+      {
+        "name_hr": "Brašno meko",
+        "name_en": "Brašno meko",
+        "name_de": "Brašno meko"
+      },
+      {
+        "name_hr": "Brašno oštro",
+        "name_en": "Brašno oštro",
+        "name_de": "Brašno oštro"
+      },
+      {
+        "name_hr": "Čokolino",
+        "name_en": "Čokolino",
+        "name_de": "Čokolino"
+      },
+      {
+        "name_hr": "Griz",
+        "name_en": "Griz",
+        "name_de": "Griz"
+      },
+      {
+        "name_hr": "Heljda",
+        "name_en": "Heljda",
+        "name_de": "Heljda"
+      },
+      {
+        "name_hr": "Krušne mrvice",
+        "name_en": "Krušne mrvice",
+        "name_de": "Krušne mrvice"
+      },
+      {
+        "name_hr": "Kuglice za juhu",
+        "name_en": "Kuglice za juhu",
+        "name_de": "Kuglice za juhu"
+      },
+      {
+        "name_hr": "Mlinci",
+        "name_en": "Mlinci",
+        "name_de": "Mlinci"
+      },
+      {
+        "name_hr": "Pahuljice",
+        "name_en": "Pahuljice",
+        "name_de": "Pahuljice"
+      },
+      {
+        "name_hr": "Palenta",
+        "name_en": "Palenta",
+        "name_de": "Palenta"
+      },
+      {
+        "name_hr": "Penne",
+        "name_en": "Penne",
+        "name_de": "Penne"
+      },
+      {
+        "name_hr": "Prašak za pecivo",
+        "name_en": "Prašak za pecivo",
+        "name_de": "Prašak za pecivo"
+      },
+      {
+        "name_hr": "Proso",
+        "name_en": "Proso",
+        "name_de": "Proso"
+      },
+      {
+        "name_hr": "Riža",
+        "name_en": "Rice",
+        "name_de": "Reis"
+      },
+      {
+        "name_hr": "Šarafi",
+        "name_en": "Šarafi",
+        "name_de": "Šarafi"
+      },
+      {
+        "name_hr": "Šećer",
+        "name_en": "Šećer",
+        "name_de": "Šećer"
+      },
+      {
+        "name_hr": "Soda bikarbona",
+        "name_en": "Soda bikarbona",
+        "name_de": "Soda bikarbona"
+      },
+      {
+        "name_hr": "Špageti",
+        "name_en": "Špageti",
+        "name_de": "Špageti"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Ulja i octevi",
+    "items": [
+      {
+        "name_hr": "Ocat alkoholni",
+        "name_en": "Ocat alkoholni",
+        "name_de": "Ocat alkoholni"
+      },
+      {
+        "name_hr": "Ocat balsamico",
+        "name_en": "Ocat balsamico",
+        "name_de": "Ocat balsamico"
+      },
+      {
+        "name_hr": "Ocat jabučni",
+        "name_en": "Ocat jabučni",
+        "name_de": "Ocat jabučni"
+      },
+      {
+        "name_hr": "Ulje bučino",
+        "name_en": "Ulje bučino",
+        "name_de": "Ulje bučino"
+      },
+      {
+        "name_hr": "Ulje maslinovo",
+        "name_en": "Ulje maslinovo",
+        "name_de": "Ulje maslinovo"
+      },
+      {
+        "name_hr": "Ulje suncokretovo",
+        "name_en": "Ulje suncokretovo",
+        "name_de": "Ulje suncokretovo"
+      },
+      {
+        "name_hr": "Vinski ocat",
+        "name_en": "Vinski ocat",
+        "name_de": "Vinski ocat"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Voće",
+    "items": [
+      {
+        "name_hr": "Ananas",
+        "name_en": "Pineapple",
+        "name_de": "Ananas"
+      },
+      {
+        "name_hr": "Banana",
+        "name_en": "Banana",
+        "name_de": "Banane"
+      },
+      {
+        "name_hr": "Borovnica",
+        "name_en": "Blueberry",
+        "name_de": "Blaubeere"
+      },
+      {
+        "name_hr": "Breskva",
+        "name_en": "Breskva",
+        "name_de": "Breskva"
+      },
+      {
+        "name_hr": "Datulje",
+        "name_en": "Datulje",
+        "name_de": "Datulje"
+      },
+      {
+        "name_hr": "Dinja",
+        "name_en": "Dinja",
+        "name_de": "Dinja"
+      },
+      {
+        "name_hr": "Grejp",
+        "name_en": "Grejp",
+        "name_de": "Grejp"
+      },
+      {
+        "name_hr": "Grožđe",
+        "name_en": "Grožđe",
+        "name_de": "Grožđe"
+      },
+      {
+        "name_hr": "Jabuka",
+        "name_en": "Apple",
+        "name_de": "Apfel"
+      },
+      {
+        "name_hr": "Jagoda",
+        "name_en": "Jagoda",
+        "name_de": "Jagoda"
+      },
+      {
+        "name_hr": "Kivi",
+        "name_en": "Kivi",
+        "name_de": "Kivi"
+      },
+      {
+        "name_hr": "Kruška",
+        "name_en": "Kruška",
+        "name_de": "Kruška"
+      },
+      {
+        "name_hr": "Kupina",
+        "name_en": "Kupina",
+        "name_de": "Kupina"
+      },
+      {
+        "name_hr": "Limun",
+        "name_en": "Limun",
+        "name_de": "Limun"
+      },
+      {
+        "name_hr": "Lubenica",
+        "name_en": "Lubenica",
+        "name_de": "Lubenica"
+      },
+      {
+        "name_hr": "Malina",
+        "name_en": "Malina",
+        "name_de": "Malina"
+      },
+      {
+        "name_hr": "Mandarina",
+        "name_en": "Mandarina",
+        "name_de": "Mandarina"
+      },
+      {
+        "name_hr": "Marelica",
+        "name_en": "Marelica",
+        "name_de": "Marelica"
+      },
+      {
+        "name_hr": "Nar",
+        "name_en": "Nar",
+        "name_de": "Nar"
+      },
+      {
+        "name_hr": "Naranča",
+        "name_en": "Naranča",
+        "name_de": "Naranča"
+      },
+      {
+        "name_hr": "Nektarina",
+        "name_en": "Nektarina",
+        "name_de": "Nektarina"
+      },
+      {
+        "name_hr": "Smokva",
+        "name_en": "Smokva",
+        "name_de": "Smokva"
+      },
+      {
+        "name_hr": "Suhe marelice",
+        "name_en": "Suhe marelice",
+        "name_de": "Suhe marelice"
+      },
+      {
+        "name_hr": "Suhe smokve",
+        "name_en": "Suhe smokve",
+        "name_de": "Suhe smokve"
+      },
+      {
+        "name_hr": "Suhe šljive",
+        "name_en": "Suhe šljive",
+        "name_de": "Suhe šljive"
+      },
+      {
+        "name_hr": "Šljiva",
+        "name_en": "Šljiva",
+        "name_de": "Šljiva"
+      }
+    ]
+  },
+  {
+    "country": "Hrvatska",
+    "category": "Začini i suhi dodaci",
+    "items": [
+      {
+        "name_hr": "Bosiljak",
+        "name_en": "Bosiljak",
+        "name_de": "Bosiljak"
+      },
+      {
+        "name_hr": "Cimet",
+        "name_en": "Cimet",
+        "name_de": "Cimet"
+      },
+      {
+        "name_hr": "Crvena paprika ljuta",
+        "name_en": "Crvena paprika ljuta",
+        "name_de": "Crvena paprika ljuta"
+      },
+      {
+        "name_hr": "Crvena paprika slatka",
+        "name_en": "Crvena paprika slatka",
+        "name_de": "Crvena paprika slatka"
+      },
+      {
+        "name_hr": "Klinčić",
+        "name_en": "Klinčić",
+        "name_de": "Klinčić"
+      },
+      {
+        "name_hr": "Kumin",
+        "name_en": "Kumin",
+        "name_de": "Kumin"
+      },
+      {
+        "name_hr": "Kurkuma",
+        "name_en": "Kurkuma",
+        "name_de": "Kurkuma"
+      },
+      {
+        "name_hr": "Kakao u prahu",
+        "name_en": "Kakao u prahu",
+        "name_de": "Kakao u prahu"
+      },
+      {
+        "name_hr": "Lovorov list",
+        "name_en": "Lovorov list",
+        "name_de": "Lovorov list"
+      },
+      {
+        "name_hr": "Majčina dušica",
+        "name_en": "Majčina dušica",
+        "name_de": "Majčina dušica"
+      },
+      {
+        "name_hr": "Muškatni oraščić",
+        "name_en": "Muškatni oraščić",
+        "name_de": "Muškatni oraščić"
+      },
+      {
+        "name_hr": "Origano",
+        "name_en": "Origano",
+        "name_de": "Origano"
+      },
+      {
+        "name_hr": "Papar",
+        "name_en": "Pepper",
+        "name_de": "Pfeffer"
+      },
+      {
+        "name_hr": "Peršin suhi",
+        "name_en": "Peršin suhi",
+        "name_de": "Peršin suhi"
+      },
+      {
+        "name_hr": "Ružmarin",
+        "name_en": "Ružmarin",
+        "name_de": "Ružmarin"
+      },
+      {
+        "name_hr": "Sol",
+        "name_en": "Salt",
+        "name_de": "Salz"
+      },
+      {
+        "name_hr": "Vanilin šećer",
+        "name_en": "Vanilin šećer",
+        "name_de": "Vanilin šećer"
+      },
+      {
+        "name_hr": "Vegeta",
+        "name_en": "Vegeta",
+        "name_de": "Vegeta"
+      }
+    ]
+  },
+  {
+    "country": "Indija",
+    "category": "Bezglutenski i dijetni proizvodi",
+    "items": [
+      {
+        "name_hr": "Besan (brašno od slanutka)",
+        "name_en": "Chickpea flour",
+        "name_de": "Kichererbsenmehl"
+      }
+    ]
+  },
+  {
+    "country": "Indija",
+    "category": "Začini i suhi dodaci",
+    "items": [
+      {
+        "name_hr": "Kari",
+        "name_en": "Curry powder",
+        "name_de": "Currypulver"
+      }
+    ]
+  },
+  {
+    "country": "Iran",
+    "category": "Pekarski proizvodi i žitarice",
+    "items": [
+      {
+        "name_hr": "Lavash",
+        "name_en": "Lavash bread",
+        "name_de": "Lavash Brot"
+      }
+    ]
+  },
+  {
+    "country": "Italija",
+    "category": "Konzervirani i gotovi proizvodi",
+    "items": [
+      {
+        "name_hr": "Passata",
+        "name_en": "Tomato passata",
+        "name_de": "Passata di pomodoro"
+      }
+    ]
+  },
+  {
+    "country": "Italija",
+    "category": "Mliječni proizvodi i namazi",
+    "items": [
+      {
+        "name_hr": "Ricotta",
+        "name_en": "Ricotta",
+        "name_de": "Ricotta"
+      }
+    ]
+  },
+  {
+    "country": "Italija",
+    "category": "Sezonski proizvodi",
+    "items": [
+      {
+        "name_hr": "Panettone",
+        "name_en": "Panettone",
+        "name_de": "Panettone"
+      }
+    ]
+  },
+  {
+    "country": "Italija",
+    "category": "Tjestenina, riža, brašno",
+    "items": [
+      {
+        "name_hr": "Penne",
+        "name_en": "Penne",
+        "name_de": "Penne"
+      }
+    ]
+  },
+  {
+    "country": "Izrael",
+    "category": "Konzervirani i gotovi proizvodi",
+    "items": [
+      {
+        "name_hr": "Hummus",
+        "name_en": "Hummus",
+        "name_de": "Hummus"
+      }
+    ]
+  },
+  {
+    "country": "Japan",
+    "category": "Riba i morski plodovi",
+    "items": [
+      {
+        "name_hr": "Nori alge",
+        "name_en": "Nori seaweed",
+        "name_de": "Nori Algen"
+      }
+    ]
+  },
+  {
+    "country": "Japan",
+    "category": "Sezonski proizvodi",
+    "items": [
+      {
+        "name_hr": "Mochi kolači",
+        "name_en": "Mochi cakes",
+        "name_de": "Mochi-Kuchen"
+      }
+    ]
+  },
+  {
+    "country": "Kina",
+    "category": "Konzervirani i gotovi proizvodi",
+    "items": [
+      {
+        "name_hr": "Soja umak",
+        "name_en": "Soy sauce",
+        "name_de": "Sojasoße"
+      }
+    ]
+  },
+  {
+    "country": "Koreja",
+    "category": "Konzervirani i gotovi proizvodi",
+    "items": [
+      {
+        "name_hr": "Kimchi",
+        "name_en": "Kimchi",
+        "name_de": "Kimchi"
+      }
+    ]
+  },
+  {
+    "country": "Mađarska",
+    "category": "Začini i suhi dodaci",
+    "items": [
+      {
+        "name_hr": "Paprika",
+        "name_en": "Paprika",
+        "name_de": "Paprika"
+      }
+    ]
+  },
+  {
+    "country": "Meksiko",
+    "category": "Sezonski proizvodi",
+    "items": [
+      {
+        "name_hr": "Pan de muerto",
+        "name_en": "Bread of the dead",
+        "name_de": "Totenbrot"
+      }
+    ]
+  },
+  {
+    "country": "Meksiko",
+    "category": "Začini i suhi dodaci",
+    "items": [
+      {
+        "name_hr": "Chili prah",
+        "name_en": "Chili powder",
+        "name_de": "Chilipulver"
+      }
+    ]
+  },
+  {
+    "country": "Njemačka",
+    "category": "Bezglutenski i dijetni proizvodi",
+    "items": [
+      {
+        "name_hr": "Bezglutenski kruh",
+        "name_en": "Gluten-free bread",
+        "name_de": "Glutenfreies Brot"
+      }
+    ]
+  },
+  {
+    "country": "Njemačka",
+    "category": "Dodaci prehrani i ljekarnički proizvodi",
+    "items": [
+      {
+        "name_hr": "Multivitamini",
+        "name_en": "Multivitamins",
+        "name_de": "Multivitamine"
+      }
+    ]
+  },
+  {
+    "country": "Njemačka",
+    "category": "Mesni proizvodi",
+    "items": [
+      {
+        "name_hr": "Weisswurst",
+        "name_en": "White sausage",
+        "name_de": "Weißwurst"
+      }
+    ]
+  },
+  {
+    "country": "Njemačka",
+    "category": "Pekarski proizvodi i žitarice",
+    "items": [
+      {
+        "name_hr": "Pretzel",
+        "name_en": "Pretzel",
+        "name_de": "Brezel"
+      }
+    ]
+  },
+  {
+    "country": "Njemačka",
+    "category": "Piće",
+    "items": [
+      {
+        "name_hr": "Pšenično pivo",
+        "name_en": "Wheat beer",
+        "name_de": "Weizenbier"
+      }
+    ]
+  },
+  {
+    "country": "Norveška",
+    "category": "Riba i morski plodovi",
+    "items": [
+      {
+        "name_hr": "Torsk",
+        "name_en": "Cod",
+        "name_de": "Dorsch"
+      }
+    ]
+  },
+  {
+    "country": "Poljska",
+    "category": "Mesni proizvodi",
+    "items": [
+      {
+        "name_hr": "Kiełbasa",
+        "name_en": "Sausage",
+        "name_de": "Wurst"
+      }
+    ]
+  },
+  {
+    "country": "Portugal",
+    "category": "Riba i morski plodovi",
+    "items": [
+      {
+        "name_hr": "Bacalao",
+        "name_en": "Codfish",
+        "name_de": "Kabeljau"
+      }
+    ]
+  },
+  {
+    "country": "Rusija",
+    "category": "Mliječni proizvodi i namazi",
+    "items": [
+      {
+        "name_hr": "Smetana",
+        "name_en": "Sour cream",
+        "name_de": "Sauerrahm"
+      }
+    ]
+  },
+  {
+    "country": "SAD",
+    "category": "Dodaci prehrani i ljekarnički proizvodi",
+    "items": [
+      {
+        "name_hr": "Vitamin C tablete",
+        "name_en": "Vitamin C tablets",
+        "name_de": "Vitamin-C-Tabletten"
+      }
+    ]
+  },
+  {
+    "country": "SAD",
+    "category": "Mesni proizvodi",
+    "items": [
+      {
+        "name_hr": "Bacon",
+        "name_en": "Bacon",
+        "name_de": "Speck"
+      }
+    ]
+  },
+  {
+    "country": "SAD",
+    "category": "Piće",
+    "items": [
+      {
+        "name_hr": "Root beer",
+        "name_en": "Root beer",
+        "name_de": "Root Beer"
+      }
+    ]
+  },
+  {
+    "country": "SAD",
+    "category": "Slatkiši i grickalice",
+    "items": [
+      {
+        "name_hr": "Peanut butter",
+        "name_en": "Peanut butter",
+        "name_de": "Erdnussbutter"
+      }
+    ]
+  },
+  {
+    "country": "Tajland",
+    "category": "Začini i suhi dodaci",
+    "items": [
+      {
+        "name_hr": "Tamarind pasta",
+        "name_en": "Tamarind paste",
+        "name_de": "Tamarindenpaste"
+      }
+    ]
+  },
+  {
+    "country": "Turska",
+    "category": "Slatko",
+    "items": [
+      {
+        "name_hr": "Baklava",
+        "name_en": "Baklava",
+        "name_de": "Baklava"
+      }
+    ]
+  },
+  {
+    "country": "UK",
+    "category": "Bezglutenski i dijetni proizvodi",
+    "items": [
+      {
+        "name_hr": "Bezglutenska tjestenina",
+        "name_en": "Gluten-free pasta",
+        "name_de": "Glutenfreie Pasta"
+      }
+    ]
+  },
+  {
+    "country": "Ukrajina",
+    "category": "Pekarski proizvodi i žitarice",
+    "items": [
+      {
+        "name_hr": "Pampushky",
+        "name_en": "Garlic buns",
+        "name_de": "Knoblauchbrötchen"
+      }
+    ]
+  },
+  {
+    "country": "Vijetnam",
+    "category": "Konzervirani i gotovi proizvodi",
+    "items": [
+      {
+        "name_hr": "Riblji umak",
+        "name_en": "Fish sauce",
+        "name_de": "Fischsauce"
+      }
+    ]
+  },
+  {
+    "country": "Češka",
+    "category": "Piće",
+    "items": [
+      {
+        "name_hr": "Češko pivo",
+        "name_en": "Czech beer",
+        "name_de": "Tschechisches Bier"
+      }
+    ]
+  },
+  {
+    "country": "Španjolska",
+    "category": "Mesni proizvodi",
+    "items": [
+      {
+        "name_hr": "Chorizo",
+        "name_en": "Chorizo",
+        "name_de": "Chorizo"
+      }
+    ]
+  },
+  {
+    "country": "Španjolska",
+    "category": "Voće",
+    "items": [
+      {
+        "name_hr": "Kaki",
+        "name_en": "Persimmon",
+        "name_de": "Kaki"
+      }
+    ]
+  },
+  {
+    "country": "Švedska",
+    "category": "Lokalni specijaliteti",
+    "items": [
+      {
+        "name_hr": "Kanelbullar",
+        "name_en": "Cinnamon rolls",
+        "name_de": "Zimtschnecken"
+      }
+    ]
+  },
+  {
+    "country": "Švedska",
+    "category": "Riba i morski plodovi",
+    "items": [
+      {
+        "name_hr": "Dimljeni losos",
+        "name_en": "Smoked salmon",
+        "name_de": "Räucherlachs"
+      }
+    ]
+  }
+]
