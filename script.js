@@ -121,6 +121,11 @@ function renderCategories() {
       btn.textContent = currentLanguage === "HR" ? item : translations[item] || item;
       btn.classList.add('item-button');
 
+      // Ako je već odabran ➔ odmah ga označi zeleno
+      if (selectedItems[item] && selectedItems[item] > 0) {
+        btn.classList.add("selected-item");
+      }
+
       let pressTimer;
       let isLongPress = false;
 
@@ -174,6 +179,7 @@ function renderCategories() {
     container.appendChild(catDiv);
   }
 }
+
 
 function activateFirstCategory() {
   const allCategories = document.querySelectorAll(".category");
@@ -459,44 +465,87 @@ function handleSwipeGesture() {
 }
 
 
-function shareShoppingList() {
-  const json = JSON.stringify(selectedItems);
-  const file = new File([json], "popis.smartcart", {
-    type: "application/x.smartcart"
-  });
+function renderCategories() {
+  const container = document.getElementById("categoriesContainer");
+  container.innerHTML = "";
 
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const isFileShareSupported = navigator.canShare && navigator.canShare({ files: [file] });
+  for (let [category, items] of Object.entries(categories)) {
+    const catDiv = document.createElement("div");
+    catDiv.className = "category";
 
-  if (isMobile && isFileShareSupported) {
-    navigator.share({
-      title: "SmartCart Popis",
-      text: "Pogledaj moj popis za kupovinu:",
-      files: [file]
-    }).catch(err => {
-      console.log("Dijeljenje prekinuto:", err);
-      alert(currentLanguage === "HR"
-        ? "Nije moguće podijeliti datoteku. Dijelim kao link..."
-        : "Unable to share file. Falling back to link...");
-      fallbackToLink(json);
+    const catHeader = document.createElement("h3");
+    catHeader.textContent = currentLanguage === "HR" ? category : (translations[category] || category);
+    catHeader.onclick = () => {
+      document.querySelectorAll(".category").forEach(c => c.classList.remove("active"));
+      catDiv.classList.add("active");
+    };
+    catDiv.appendChild(catHeader);
+
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "items";
+
+    items.forEach(item => {
+      const btn = document.createElement("button");
+      btn.textContent = currentLanguage === "HR" ? item : translations[item] || item;
+      btn.classList.add('item-button');
+
+      // Ako je već odabran ➔ odmah ga označi zeleno
+      if (selectedItems[item] && selectedItems[item] > 0) {
+        btn.classList.add("selected-item");
+      }
+
+      let pressTimer;
+      let isLongPress = false;
+
+      function startPressTimer() {
+        isLongPress = false;
+        pressTimer = window.setTimeout(() => {
+          isLongPress = true;
+          showQuantityPopup(item, btn);
+        }, 500);
+      }
+
+      function cancelPressTimer() {
+        clearTimeout(pressTimer);
+      }
+
+      btn.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        startPressTimer();
+      });
+      btn.addEventListener('mouseup', cancelPressTimer);
+      btn.addEventListener('mouseleave', cancelPressTimer);
+
+      btn.addEventListener('touchstart', (e) => {
+        isLongPress = false;
+        startPressTimer();
+      });
+      btn.addEventListener('touchend', (e) => {
+        cancelPressTimer();
+        if (!isLongPress) {
+          selectedItems[item] = (selectedItems[item] || 0) + 1;
+          btn.classList.add("selected-item");
+          renderSelectedItems();
+          showFloatingPlus(btn);
+        }
+      });
+      btn.addEventListener('touchcancel', cancelPressTimer);
+
+      btn.addEventListener('click', (e) => {
+        if (!isLongPress && !("ontouchstart" in window)) {
+          selectedItems[item] = (selectedItems[item] || 0) + 1;
+          btn.classList.add("selected-item");
+          renderSelectedItems();
+          showFloatingPlus(btn);
+        }
+      });
+
+      itemDiv.appendChild(btn);
     });
-  } else {
-    fallbackToLink(json);
+
+    catDiv.appendChild(itemDiv);
+    container.appendChild(catDiv);
   }
 }
 
-function fallbackToLink(json) {
-  const encoded = btoa(unescape(encodeURIComponent(json)));
-  const shareUrl = `${window.location.origin}${window.location.pathname}?popis=${encoded}`;
-
-  navigator.clipboard.writeText(shareUrl).then(() => {
-    showPopup(currentLanguage === "HR"
-      ? "Link kopiran u međuspremnik!"
-      : "Link copied to clipboard!");
-  }).catch(() => {
-    alert(currentLanguage === "HR"
-      ? "Kopiranje linka nije uspjelo."
-      : "Failed to copy link.");
-  });
-}
 
