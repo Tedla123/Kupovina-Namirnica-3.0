@@ -549,3 +549,41 @@ function renderCategories() {
 }
 
 
+function shareShoppingList() {
+  const json = JSON.stringify(selectedItems);
+  const file = new File([json], "popis.smartcart", {
+    type: "application/x.smartcart"
+  });
+
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isFileShareSupported = navigator.canShare && navigator.canShare({ files: [file] });
+
+  if (isMobile && isFileShareSupported) {
+    navigator.share({
+      title: "SmartCart Popis",
+      text: "Pogledaj moj popis za kupovinu:",
+      files: [file]
+    }).catch(err => {
+      console.log("Dijeljenje prekinuto:", err);
+      fallbackToLink(json);
+    });
+  } else {
+    fallbackToLink(json);
+  }
+}
+
+function fallbackToLink(json) {
+  const encoded = btoa(unescape(encodeURIComponent(json)));
+  const shareUrl = `${window.location.origin}${window.location.pathname}?popis=${encoded}`;
+
+  navigator.clipboard.writeText(shareUrl).then(() => {
+    showPopup(currentLanguage === "HR"
+      ? "Link kopiran u međuspremnik!"
+      : "Link copied to clipboard!");
+  }).catch(() => {
+    alert(currentLanguage === "HR"
+      ? "Kopiranje linka nije uspjelo."
+      : "Failed to copy link.");
+  });
+}
+
