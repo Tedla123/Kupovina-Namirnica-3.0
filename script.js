@@ -550,14 +550,13 @@ function renderCategories() {
 
 
 function shareShoppingList() {
-  const json = JSON.stringify(selectedItems);
-  const file = new File([json], "popis.smartcart", {
-    type: "application/x.smartcart"
-  });
+  const json = JSON.stringify(selectedItems); // Generiraj JSON odabrane liste
+  const file = new File([json], "popis.smartcart", { type: "application/x.smartcart" });
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const isFileShareSupported = navigator.canShare && navigator.canShare({ files: [file] });
 
+  // Ako je mobilni uređaj i podržano dijeljenje datoteka
   if (isMobile && isFileShareSupported) {
     navigator.share({
       title: "SmartCart Popis",
@@ -565,17 +564,19 @@ function shareShoppingList() {
       files: [file]
     }).catch(err => {
       console.log("Dijeljenje prekinuto:", err);
-      fallbackToLink(json);
+      fallbackToLink(json); // Ako dijeljenje ne uspije, koristi fallback na link
     });
   } else {
-    fallbackToLink(json);
+    fallbackToLink(json); // Za desktop ili kad mobilno dijeljenje nije podržano
   }
 }
 
+// Fallback funkcija za dijeljenje putem URL linka
 function fallbackToLink(json) {
-  const encoded = btoa(unescape(encodeURIComponent(json)));
+  const encoded = btoa(unescape(encodeURIComponent(json))); // Enkodiraj popis u URL
   const shareUrl = `${window.location.origin}${window.location.pathname}?popis=${encoded}`;
 
+  // Kopiranje linka u međuspremnik
   navigator.clipboard.writeText(shareUrl).then(() => {
     showPopup(currentLanguage === "HR"
       ? "Link kopiran u međuspremnik!"
@@ -586,4 +587,5 @@ function fallbackToLink(json) {
       : "Failed to copy link.");
   });
 }
+
 
